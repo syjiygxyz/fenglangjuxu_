@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="navigation"
+            type="com.fenglangjuxu.base.model.NavigationMp"/>
+        <variable
+            name="home"
+            type="com.fenglangjuxu.takeout.model.home.TakeOutHomeMp"/>
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <View
+            android:id="@+id/take_out_status_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"/>
+        <include layout="@layout/layout_navigation"
+            navigation="@{navigation}" />
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:adapter="@{home.adapter}"
+            app:layoutManager="@{LayoutManagers.linear()}"
+            app:itemBinding="@{home.multipleItems}"
+            app:items="@{home.headerFooterItems}"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="bottom"
+            type="com.fenglangjuxu.takeout.model.store.TakeOutStoreBottomMp" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:background="@color/yellowTint"
+            android:text="满20减8元，满30元减13元，满40元减18元，满80元减30元"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_takeout_bottom_height"
+            android:background="@color/black40"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                onClickCommand="@{bottom.cartClick}">
+
+                <ImageView
+                    android:id="@+id/iv_shop_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:src="@mipmap/ic_shopping_car_big" />
+
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/bg_num_tag"
+                    android:gravity="center"
+                    android:text="@{bottom.totalNumStr}"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:visibility="@{bottom.totalNum>0?View.VISIBLE:View.GONE}" />
+            </FrameLayout>
+
+            <TextView
+                style="@style/text16"
+                android:text="@{bottom.totalPriceStr}"
+                android:textColor="@color/white" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                onClickCommand="@{bottom.goPay}"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:background="@{bottom.enable?@drawable/bg_theme_gradient:@drawable/bg_black}"
+                android:gravity="center">
+
+                <TextView
+                    style="@style/text14"
+                    android:text="￥20 元起送"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:visibility="@{bottom.enable?View.GONE:View.VISIBLE}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="去结算"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:visibility="@{bottom.enable?View.VISIBLE:View.GONE}" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="banner"
+            type="com.fenglangjuxu.model.main.business.BusinessBannerMp"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/white">
+        <cn.bingoogolapple.bgabanner.BGABanner
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:padding="12dp"
+            app:banner_indicatorGravity="bottom|center_horizontal"
+            app:banner_pageChangeDuration="1500"
+            app:banner_pointAutoPlayAble="true"
+            app:banner_pointContainerBackground="@color/transparent"
+            app:banner_pointDrawable="@drawable/banner_indicator"
+            banner_adapter="@{banner.bannerAdapter}"
+            banner_data="@{banner.images}"/>
+    </LinearLayout>
+</layout>

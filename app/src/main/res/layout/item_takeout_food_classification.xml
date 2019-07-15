@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="item"
+            type="com.fenglangjuxu.takeout.model.store.ItemTakeoutFoodClassificationMp"/>
+        <import type="android.view.View"/>
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@{item.selected?@color/white:@color/divider}"
+        onClickCommand="@{item.itemClick}">
+        <TextView
+            style="@style/text12"
+            android:layout_gravity="center"
+            android:text="@{item.name}"/>
+        <TextView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_margin="2dp"
+            android:layout_gravity="top|end"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:background="@drawable/bg_num_tag"
+            android:text="@{item.pickNumberStr}"
+            android:visibility="@{item.pickNumber>0?View.VISIBLE:View.GONE}"/>
+    </FrameLayout>
+</layout>

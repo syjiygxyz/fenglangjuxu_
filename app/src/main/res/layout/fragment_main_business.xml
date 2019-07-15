@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="business"
+            type="com.fenglangjuxu.model.main.business.BusinessFragmentMp"/>
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/commonBg">
+        <View
+            android:id="@+id/business_status_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white">
+            <TextView
+                style="@style/text12"
+                android:drawableEnd="@drawable/ic_main_down"
+                android:drawablePadding="4dp"
+                android:text="苏州"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_gray_radius">
+                <TextView
+                    style="@style/text12"
+                    android:drawableStart="@mipmap/ic_main_search"
+                    android:drawablePadding="4dp"
+                    android:textColor="@color/grayC0"
+                    android:text="查找您想要的"/>
+            </LinearLayout>
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:adapter="@{business.adapter}"
+            app:itemBinding="@{business.multipleItems}"
+            app:items="@{business.headerFooterItems}"
+            app:layoutManager="@{LayoutManagers.linear()}"
+            android:splitMotionEvents="false"/>
+    </LinearLayout>
+</layout>

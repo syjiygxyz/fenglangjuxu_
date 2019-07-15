@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="food"
+            type="com.fenglangjuxu.takeout.model.store.TakeOutFoodFragmentMp" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+        <import type="android.view.View"/>
+    </data>
+
+    <FrameLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_classification"
+                android:layout_width="69dp"
+                android:layout_height="match_parent"
+                android:background="@color/divider"
+                app:adapter="@{food.classificationAdapter}"
+                app:itemBinding="@{food.classificationBinding}"
+                app:items="@{food.classificationList}"
+                app:layoutManager="@{LayoutManagers.linear()}" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_good"
+                decorationAdapter="@{food.adapter}"
+                decorationItemBinding="@{food.multipleItems}"
+                decorationItems="@{food.headerFooterItems}"
+                decorationTitles="@{food.titles}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                app:layoutManager="@{LayoutManagers.linear()}" />
+        </LinearLayout>
+
+       <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:background="@color/black40"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_gravity="bottom">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:src="@mipmap/ic_shopping_car_big"/>
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_margin="2dp"
+                    android:layout_gravity="top|end"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:background="@drawable/bg_num_tag"
+                    android:text="@{food.totalNumStr}"
+                    android:visibility="@{food.totalNum>0?View.VISIBLE:View.GONE}"/>
+            </FrameLayout>
+            <TextView
+                style="@style/text16"
+                android:textColor="@color/white"
+                android:text="￥20"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:background="@color/black5f"
+                android:gravity="center">
+                <TextView
+                    style="@style/text14"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:text="￥20 元起送"/>
+            </LinearLayout>
+        </LinearLayout>-->
+    </FrameLayout>
+</layout>

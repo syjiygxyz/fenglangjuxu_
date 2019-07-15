@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_decoration_title_height">36dp</dimen>
+    <dimen name="item_decoration_title_start_margin">16dp</dimen>
+    <dimen name="item_decoration_title_fontsize">12sp</dimen>
+    <dimen name="item_decoration_normal_height">10dp</dimen>
+    <dimen name="item_takeout_bottom_height">48dp</dimen>
+    <dimen name="item_divider_line_width">1dp</dimen>
+</resources>
